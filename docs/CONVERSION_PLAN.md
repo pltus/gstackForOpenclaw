@@ -213,6 +213,9 @@ Worth implementing only as an artifact-first visual and UX review workflow groun
 ### `plan-design-review`
 Worth implementing only as a pre-build UX and interaction-plan review against specs, wireframes, and user flows. It should stay honest about missing visuals and avoid pretending text-only plans can answer every visual-polish question.
 
+### `design-consultation`
+Still deferred. The current repo can support product framing, plan-level UX review, and artifact-first critique, but not a broad design-system-plus-mockup-plus-research workflow without drifting into vague or fictional promises.
+
 ## Tier 3: Postpone
 
 ### `browse`, `setup-browser-cookies`
@@ -446,6 +449,9 @@ A successful conversion should meet these standards:
 - whether to maintain a root umbrella skill later
 - whether `office-hours` belongs in Tier 1 or Tier 2
 - whether `ship` should exist as a skill or as a documented workflow pattern first
+
+### Newly reaffirmed
+- `design-consultation` stays deferred until there is a narrower, repeatable, OpenClaw-native shape for it
 
 ---
 
