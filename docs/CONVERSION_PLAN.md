@@ -1,5 +1,22 @@
 # gstack → OpenClaw Conversion Plan
 
+## Status snapshot
+
+Current implemented skills in this repo:
+
+- `plan-ceo-review`
+- `plan-eng-review`
+- `review`
+- `investigate`
+- `retro`
+- `office-hours`
+- `document-release`
+- `ship`
+- `benchmark`
+- `cso`
+
+Still intentionally postponed: browser-heavy, deployment-heavy, and environment-specific workflows.
+
 ## 1. Purpose
 
 This project converts the most valuable parts of [gstack](https://github.com/garrytan/gstack) into an OpenClaw-native skill pack.

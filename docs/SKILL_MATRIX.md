@@ -48,6 +48,27 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `unfreeze` | **Reject / Absorb** | Low-medium | Same reasoning as `freeze`; not worth treating as a portable skill abstraction. | absorb into policy and ops procedures |
 | `gstack-upgrade` | **Reject / Absorb** | Low | Specific to gstack’s own distribution/update model, which this project is not copying. | omit entirely |
 
+## Current implementation snapshot
+
+Implemented in this repo today:
+
+- `plan-ceo-review`
+- `plan-eng-review`
+- `review`
+- `investigate`
+- `retro`
+- `office-hours`
+- `document-release`
+- `ship`
+- `benchmark`
+- `cso`
+
+Notes:
+
+- The **decision bucket** in the matrix is still the prioritization judgment from the planning pass, not a live deployment gate.
+- `benchmark` and `cso` were originally placed in **Consider Later**, but have now been implemented as deliberately thin skills without changing the broader rationale that they require careful evidence and false-positive control.
+- Browser-heavy and environment-specific workflows remain unimplemented on purpose.
+
 ## What this means for Phase 0 → Phase 1
 
 ### Locked as first implementation targets
