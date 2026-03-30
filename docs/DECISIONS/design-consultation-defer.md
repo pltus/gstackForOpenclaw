@@ -43,4 +43,10 @@ Revisit only if the repo gains stronger, repeatable support for at least one of:
 - dependable artifact generation or user-supplied mockups as a standard input
 - a clearer common output shape for design-direction work across multiple repos
 
+And only if there is a tighter packaging story for the skill itself, such as:
+
+- a standard input bundle the user can actually provide repeatedly (for example brief + references + current UX artifacts)
+- repeated demand that is not already well served by `office-hours`, `plan-design-review`, or `design-review`
+- a narrow output contract that avoids implying full mockup generation or open-ended design-system creation
+
 Until then, `office-hours` + `plan-design-review` + `design-review` is the cleaner OpenClaw-native story.

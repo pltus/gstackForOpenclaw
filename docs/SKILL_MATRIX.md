@@ -13,6 +13,7 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 - **Consider Later** — useful, but depends on stronger conventions or more proven core workflows
 - **Postpone** — conceptually valid, but blocked by browser/runtime gaps or higher implementation risk
 - **Reject / Absorb** — do not port as a standalone skill; either fold into base agent behavior or drop entirely
+- **Implemented** — now present in this repo in an intentionally narrow OpenClaw-native form
 
 ## Matrix
 
@@ -23,21 +24,21 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `review` | **Build First** | High | Core code review workflow maps well to `read`, `exec`, git diff, and optional GitHub usage. | review skill with explicit must-fix / should-fix / questions structure |
 | `investigate` | **Build First** | High | Root-cause-first debugging is strongly aligned with OpenClaw’s tool model and sub-agent patterns. | investigation skill using `exec`, targeted file reads, and optional spawned helpers |
 | `retro` | **Build First** | High | Reflection and learning loops fit naturally with repo history, docs, and memory. | retro skill that synthesizes commits, incidents, and decisions into action items |
-| `office-hours` | **Consider Later** | Medium-high | Valuable for zero-to-one product shaping, but overlaps with `plan-ceo-review` until a stronger common report format exists. | likely a front-door planning skill or a reusable framing template rather than a heavy standalone flow |
-| `document-release` | **Consider Later** | Medium | Useful once shipping and release conventions are stable, but premature before the first core skills land. | documentation-oriented skill tied to release notes, changelogs, and rollout summaries |
-| `ship` | **Consider Later** | Medium | High user value, but easy to overpromise. Should follow once review boundaries and CI expectations are clear. | thin release checklist with explicit handoff points, not "magic ship" automation |
-| `benchmark` | **Consider Later** | Medium | Performance review is useful, but only after the repo has stable workloads and measurement conventions. | helper-oriented skill around repeatable benchmark commands and result summaries |
-| `cso` | **Consider Later** | Medium | Security review is important, but needs careful false-positive control and a documented threat-modeling style. | security review skill with confidence thresholds and exploit-scenario reporting |
+| `office-hours` | **Implemented** | Medium-high | Landed as a narrow front-door product framing workflow without changing the original judgment that overlap control matters. | front-door planning skill with reusable framing and routing guidance |
+| `document-release` | **Implemented** | Medium | Now present as a thin documentation-oriented workflow tied to release summaries rather than broad release automation. | documentation-oriented skill tied to release notes, changelogs, and rollout summaries |
+| `ship` | **Implemented** | Medium | Landed in a deliberately narrow checklist-and-handoff form rather than a magic deployment command. | thin release checklist with explicit handoff points, not "magic ship" automation |
+| `benchmark` | **Implemented** | Medium | Now implemented as a thin evidence-first performance review workflow while keeping measurement-discipline caveats intact. | helper-oriented skill around repeatable benchmark commands and result summaries |
+| `cso` | **Implemented** | Medium | Now implemented in a constrained review shape with the same need for confidence control and threat-model clarity. | security review skill with confidence thresholds and exploit-scenario reporting |
 | `land-and-deploy` | **Postpone** | Low-medium | Reassessed during Phase 2 and still deferred: deployment flows remain too environment-specific and too easy to fake as a generic skill. | if ever added, should be template-driven and repo-specific |
 | `canary` | **Postpone** | Low-medium | Depends on deployment maturity, telemetry, and rollback conventions that this project does not have yet. | likely a workflow doc or script set, not an early generic skill |
-| `qa` | **Consider Later** | Medium | Full gstack-style browser QA is still out of scope, but a narrower OpenClaw-native verification workflow is credible and useful. | evidence-first QA skill built around diffs, repo-native tests, manual repro steps, and honest limits |
-| `qa-only` | **Build Now (implemented)** | Medium | A report-only QA mode is credible when it stays evidence-first, uses the same honest runtime limits as `qa`, and avoids silent fixing. | non-mutating QA verification with bug reports, repro steps, and release guidance |
+| `qa` | **Implemented** | Medium | Landed in a narrower evidence-first form that keeps browser-parity out of scope while still supporting credible verification work. | evidence-first QA skill built around diffs, repo-native tests, manual repro steps, and honest limits |
+| `qa-only` | **Implemented** | Medium | A report-only QA mode is now implemented with the same honest runtime limits as `qa` and without silent fixing. | non-mutating QA verification with bug reports, repro steps, and release guidance |
 | `browse` | **Postpone** | Low | This is a runtime capability question, not a planning-docs question. Early porting would create false expectations. | redesign later around actual available browser tooling |
 | `connect-chrome` | **Postpone** | Low | Purely runtime-specific. Outside the first OpenClaw-native scope. | none until browser integration is a real product requirement |
 | `setup-browser-cookies` | **Postpone** | Low | Operationally sensitive and tightly coupled to a browser stack that this project is explicitly not recreating yet. | none for early phases |
 | `setup-deploy` | **Postpone** | Low-medium | May be useful in some repos, but too environment-specific for the first pass. | repo-local reference docs or scripts, not a generic early skill |
-| `plan-design-review` | **Build Now (implemented)** | Medium-high | A narrow pre-build UX review is now credible when grounded in plans, wireframes, flows, and explicit missing-artifact callouts. | plan-level design review against specs, flows, wireframes, and state coverage |
-| `design-review` | **Consider Later** | Medium | Strong value when visual evidence exists. A narrower artifact-first review is credible even though gstack's live-site browser audit + auto-fix loop is not. | artifact-first design review using screenshots, mockups, recordings, and frontend diffs |
+| `plan-design-review` | **Implemented** | Medium-high | Landed as a narrow pre-build UX review grounded in plans, wireframes, flows, and explicit missing-artifact callouts. | plan-level design review against specs, flows, wireframes, and state coverage |
+| `design-review` | **Implemented** | Medium | Now implemented in an artifact-first form grounded in screenshots, mockups, recordings, and frontend evidence instead of fake live-site automation. | artifact-first design review using screenshots, mockups, recordings, and frontend diffs |
 | `design-consultation` | **Postpone** | Medium-low | Reaffirmed as deferred in the current expansion pass: still too open-ended and too easy to overpromise without stronger design-research and artifact conventions. | maybe later as a narrowed design-direction or reference-synthesis workflow |
 | `design-shotgun` | **Postpone** | Low | Multi-variant visual exploration is attractive but far from this repo’s immediate planning and review goals. | likely requires stronger generation + comparison tooling first |
 | `autoplan` | **Reject / Absorb** | Medium | The intent is useful, but the standalone command is less important than embedding planning rigor into the main planning skills. | absorb into `office-hours` / `plan-*` patterns instead of porting directly |
@@ -69,7 +70,7 @@ Implemented in this repo today:
 
 Notes:
 
-- The **decision bucket** in the matrix is still the prioritization judgment from the planning pass, not a live deployment gate.
+- The matrix now mixes historical prioritization with current implementation status so readers can see both the original judgment and the current repo reality in one place.
 - `benchmark` and `cso` were originally placed in **Consider Later**, but have now been implemented as deliberately thin skills without changing the broader rationale that they require careful evidence and false-positive control.
 - `qa` was originally postponed for browser reasons, but is now implemented in a narrower evidence-first form that stays honest about missing browser automation.
 - `qa-only` was originally postponed as too browser-shaped, but is now implemented as a report-only verification variant that shares `qa`'s honest runtime limits and avoids code changes.
@@ -77,7 +78,7 @@ Notes:
 - `plan-design-review` was originally postponed, but is now implemented in a narrower pre-build form focused on plans, flows, wireframes, and explicit design-state coverage before code starts.
 - Browser-parity and strongly environment-specific workflows remain unimplemented on purpose.
 
-## What this means for Phase 0 → Phase 1
+## What this meant for Phase 0 → Phase 1
 
 ### Locked as first implementation targets
 
@@ -98,7 +99,7 @@ These are the best first candidates because they:
 
 The following should stay out of the first implementation phase unless runtime assumptions materially change:
 
-- browser-heavy workflows (`browse`, `qa-only`, `connect-chrome`, `setup-browser-cookies`)
+- browser-heavy workflows (`browse`, `connect-chrome`, `setup-browser-cookies`)
 - deployment-heavy workflows (`land-and-deploy`, `canary`, `setup-deploy`)
 - policy-only wrappers (`freeze`, `guard`, `unfreeze`, `careful`)
 - host-specific or brand-specific wrappers (`gstack-upgrade`, `codex`)
@@ -134,6 +135,6 @@ not breadth for its own sake.
 
 ### 3. Revisit later buckets only after real usage
 
-The right time to promote a `Consider Later` or `Postpone` skill is after the first wave has been used on real tasks and its gaps are concrete.
+The right time to promote a remaining `Consider Later` or `Postpone` skill is after the first wave has been used on real tasks and its gaps are concrete.
 
 Until then, this matrix should act as a scope control artifact, not a wishlist.
