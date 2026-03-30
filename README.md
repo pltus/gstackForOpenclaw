@@ -32,12 +32,13 @@ OpenClaw 에 맞게 gstack 의 핵심 워크플로우를 재해석하고, 과장
 - `ship`
 - `benchmark`
 - `cso`
+- `qa`
 
 ### Current posture
 
 - **Core first-wave skills are implemented**: planning, review, investigation, and retro flows are in place.
-- **Selected second-wave skills are also implemented** as thin OpenClaw-native workflows where the scope stayed honest (`office-hours`, `document-release`, `ship`, `benchmark`, `cso`).
-- **Browser-heavy and deployment-heavy workflows remain intentionally out of scope** until the runtime and repo conventions justify them.
+- **Selected second-wave skills are also implemented** as thin OpenClaw-native workflows where the scope stayed honest (`office-hours`, `document-release`, `ship`, `benchmark`, `cso`, `qa`).
+- **Browser parity and deployment-heavy workflows remain intentionally out of scope** even though `qa` now exists in a narrower evidence-first form without fake browser promises.
 
 ## Project Docs
 

@@ -14,8 +14,9 @@ Current implemented skills in this repo:
 - `ship`
 - `benchmark`
 - `cso`
+- `qa`
 
-Still intentionally postponed: browser-heavy, deployment-heavy, and environment-specific workflows.
+Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `qa` has been reintroduced in a narrower evidence-first form that does not promise built-in browser automation.
 
 ## 1. Purpose
 
@@ -197,10 +198,13 @@ Useful, but depends on docs conventions and release process maturity.
 Potentially high value, but risky to over-automate too early.
 Should only land after review flows are credible.
 
+### `qa`
+Worth implementing only as a narrower OpenClaw-native verification workflow: diff-aware testing, evidence-backed bug reporting, and regression follow-up using the repo's real test surfaces. Full browser-led parity remains out of scope.
+
 ## Tier 3: Postpone
 
-### `qa`, `design-review`, `browse`, `setup-browser-cookies`
-These depend heavily on a browsing/runtime story that should not be rushed.
+### `design-review`, `browse`, `setup-browser-cookies`
+These still depend heavily on a browsing/runtime story that should not be rushed.
 
 ### `careful`, `freeze`, `guard`
 Conceptually useful, but in OpenClaw these should be designed around actual tool constraints, not copied as slogans.
