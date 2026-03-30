@@ -36,7 +36,7 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `connect-chrome` | **Postpone** | Low | Purely runtime-specific. Outside the first OpenClaw-native scope. | none until browser integration is a real product requirement |
 | `setup-browser-cookies` | **Postpone** | Low | Operationally sensitive and tightly coupled to a browser stack that this project is explicitly not recreating yet. | none for early phases |
 | `setup-deploy` | **Postpone** | Low-medium | May be useful in some repos, but too environment-specific for the first pass. | repo-local reference docs or scripts, not a generic early skill |
-| `plan-design-review` | **Postpone** | Medium | The critique lens is valuable, but this repo should first prove the narrower post-implementation design review flow before adding a plan-mode design system. | later skill with references/checklists and maybe screenshot inputs |
+| `plan-design-review` | **Build Now (implemented)** | Medium-high | A narrow pre-build UX review is now credible when grounded in plans, wireframes, flows, and explicit missing-artifact callouts. | plan-level design review against specs, flows, wireframes, and state coverage |
 | `design-review` | **Consider Later** | Medium | Strong value when visual evidence exists. A narrower artifact-first review is credible even though gstack's live-site browser audit + auto-fix loop is not. | artifact-first design review using screenshots, mockups, recordings, and frontend diffs |
 | `design-consultation` | **Postpone** | Medium-low | Too open-ended for an early pack that is trying to stay sharp, thin, and operational. | maybe later as a guided ideation/reference workflow |
 | `design-shotgun` | **Postpone** | Low | Multi-variant visual exploration is attractive but far from this repo’s immediate planning and review goals. | likely requires stronger generation + comparison tooling first |
@@ -54,6 +54,7 @@ Implemented in this repo today:
 
 - `plan-ceo-review`
 - `plan-eng-review`
+- `plan-design-review`
 - `review`
 - `investigate`
 - `retro`
@@ -71,6 +72,7 @@ Notes:
 - `benchmark` and `cso` were originally placed in **Consider Later**, but have now been implemented as deliberately thin skills without changing the broader rationale that they require careful evidence and false-positive control.
 - `qa` was originally postponed for browser reasons, but is now implemented in a narrower evidence-first form that stays honest about missing browser automation.
 - `design-review` was also originally postponed, but is now implemented in an artifact-first form grounded in screenshots, mockups, and frontend evidence instead of fake live-site automation.
+- `plan-design-review` was originally postponed, but is now implemented in a narrower pre-build form focused on plans, flows, wireframes, and explicit design-state coverage before code starts.
 - Browser-parity and strongly environment-specific workflows remain unimplemented on purpose.
 
 ## What this means for Phase 0 → Phase 1
