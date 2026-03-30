@@ -115,12 +115,14 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
 - [Skill Matrix](docs/SKILL_MATRIX.md)
 - [Decision: defer `design-consultation`](docs/DECISIONS/design-consultation-defer.md)
+- [Validation Summary](docs/VALIDATION_SUMMARY.md)
 
-These two docs explain:
+These docs explain:
 
 - what was kept vs modified vs deferred
 - why certain gstack skills were reinterpreted rather than copied
 - what the phased implementation strategy looks like
+- what the latest lightweight validation pass checked and cleaned up
 
 ## Working principle
 

@@ -19,7 +19,7 @@ Current implemented skills in this repo:
 - `qa-only`
 - `design-review`
 
-Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `plan-design-review`, `qa`, `qa-only`, and `design-review` have been reintroduced in narrower planning-first / evidence-first / artifact-first forms that do not promise browser parity or finished-design certainty. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
+Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `plan-design-review`, `qa`, `qa-only`, and `design-review` are now live in narrower planning-first / evidence-first / artifact-first forms that do not promise browser parity or finished-design certainty. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
 
 ## 1. Purpose
 
@@ -287,7 +287,7 @@ The first-class unit is the **skill**, not a meta-wrapper around slash commands.
 
 ## 8. Deliverables by Phase
 
-## Phase 0 — Planning and comparison
+## Phase 0 — Planning and comparison *(complete)*
 
 ### Deliverables
 - this conversion plan
@@ -300,7 +300,7 @@ The first-class unit is the **skill**, not a meta-wrapper around slash commands.
 - explicit non-goals documented
 - OpenClaw-native principles agreed
 
-## Phase 1 — Core planning skills
+## Phase 1 — Core planning skills *(complete)*
 
 ### Deliverables
 - `skills/plan-ceo-review/SKILL.md`
@@ -312,7 +312,7 @@ The first-class unit is the **skill**, not a meta-wrapper around slash commands.
 - both skills avoid Claude-specific assumptions
 - both can be used against a real repo or planning doc
 
-## Phase 2 — Engineering review loop
+## Phase 2 — Engineering review loop *(complete)*
 
 ### Deliverables
 - `skills/review/SKILL.md`
@@ -323,7 +323,7 @@ The first-class unit is the **skill**, not a meta-wrapper around slash commands.
 - review skill can analyze a real diff with clear output structure
 - scope boundaries and “must fix / should fix” framing are stable
 
-## Phase 3 — Debugging and reflection
+## Phase 3 — Debugging and reflection *(complete)*
 
 ### Deliverables
 - `skills/investigate/SKILL.md`
@@ -333,16 +333,24 @@ The first-class unit is the **skill**, not a meta-wrapper around slash commands.
 - investigate enforces root-cause-first behavior
 - retro can produce a useful report from repository activity
 
-## Phase 4 — Optional execution expansions
+## Phase 4 — Narrow execution and review expansions *(largely complete for the current scope)*
 
 Potential candidates:
 - office-hours
 - document-release
 - ship
+- benchmark
+- cso
+- plan-design-review
+- design-review
+- qa
+- qa-only
 - codex-style second opinion pattern
 
 ### Exit criteria
-- only proceed if earlier skills prove valuable in real use
+- implemented expansions stay narrow, honest, and tool-realistic
+- deferred areas remain explicitly deferred instead of being hand-waved into scope
+- validation confirms trigger clarity, workflow coherence, and internal consistency across the newer skills
 
 ---
 
@@ -409,29 +417,28 @@ A successful conversion should meet these standards:
 
 ---
 
-## 11. Immediate Next Steps
+## 11. Current Next Steps
 
-1. Create `docs/SKILL_MATRIX.md`
-   - original gstack skill
-   - keep / modify / postpone / reject
-   - rationale
+1. Keep validating newer second-wave skills at the repo level
+   - documentation shape
+   - trigger clarity
+   - workflow coherence
+   - cross-link and reference integrity
 
-2. Draft `skills/plan-ceo-review/SKILL.md`
-   - concise trigger description
-   - workflow structure
-   - output format
+2. Tighten repo docs when planning-era wording drifts behind implementation reality
+   - phase labels
+   - matrix status buckets
+   - deferred-scope criteria
 
-3. Draft `skills/plan-eng-review/SKILL.md`
-   - architecture review lens
-   - failure/test matrix expectations
+3. Revisit deferred skills only when the runtime story becomes more concrete
+   - stronger browser support
+   - clearer deployment conventions
+   - repeatable design-input bundles
 
-4. Define a common report style
-   - summary first
-   - risks
-   - evidence
-   - next action
-
-5. Test the first skill against a real repo or feature brief
+4. Prefer small credibility upgrades over broad scope expansion
+   - sharper docs
+   - clearer boundaries
+   - better validation notes
 
 ---
 
@@ -452,6 +459,7 @@ A successful conversion should meet these standards:
 
 ### Newly reaffirmed
 - `design-consultation` stays deferred until there is a narrower, repeatable, OpenClaw-native shape for it
+- the current repo has enough coverage in planning/design/QA to prioritize validation and documentation cleanup over new broad skills
 
 ---
 
