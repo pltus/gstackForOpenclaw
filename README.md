@@ -102,6 +102,7 @@ Some skills or areas are still deferred or reinterpreted because they are too en
 Examples include:
 
 - `land-and-deploy`
+- `design-consultation`
 - `browse`
 - `setup-browser-cookies`
 - full browser-driven live-site automation parity
@@ -113,6 +114,7 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
 - [Skill Matrix](docs/SKILL_MATRIX.md)
+- [Decision: defer `design-consultation`](docs/DECISIONS/design-consultation-defer.md)
 
 These two docs explain:
 
