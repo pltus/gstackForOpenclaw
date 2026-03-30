@@ -31,7 +31,7 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `land-and-deploy` | **Postpone** | Low-medium | Reassessed during Phase 2 and still deferred: deployment flows remain too environment-specific and too easy to fake as a generic skill. | if ever added, should be template-driven and repo-specific |
 | `canary` | **Postpone** | Low-medium | Depends on deployment maturity, telemetry, and rollback conventions that this project does not have yet. | likely a workflow doc or script set, not an early generic skill |
 | `qa` | **Consider Later** | Medium | Full gstack-style browser QA is still out of scope, but a narrower OpenClaw-native verification workflow is credible and useful. | evidence-first QA skill built around diffs, repo-native tests, manual repro steps, and honest limits |
-| `qa-only` | **Postpone** | Low | Same runtime constraint as `qa`; report-only mode does not remove the browser dependency. | could later become a non-mutating testing/reporting variant |
+| `qa-only` | **Build Now (implemented)** | Medium | A report-only QA mode is credible when it stays evidence-first, uses the same honest runtime limits as `qa`, and avoids silent fixing. | non-mutating QA verification with bug reports, repro steps, and release guidance |
 | `browse` | **Postpone** | Low | This is a runtime capability question, not a planning-docs question. Early porting would create false expectations. | redesign later around actual available browser tooling |
 | `connect-chrome` | **Postpone** | Low | Purely runtime-specific. Outside the first OpenClaw-native scope. | none until browser integration is a real product requirement |
 | `setup-browser-cookies` | **Postpone** | Low | Operationally sensitive and tightly coupled to a browser stack that this project is explicitly not recreating yet. | none for early phases |
@@ -64,6 +64,7 @@ Implemented in this repo today:
 - `benchmark`
 - `cso`
 - `qa`
+- `qa-only`
 - `design-review`
 
 Notes:
@@ -71,6 +72,7 @@ Notes:
 - The **decision bucket** in the matrix is still the prioritization judgment from the planning pass, not a live deployment gate.
 - `benchmark` and `cso` were originally placed in **Consider Later**, but have now been implemented as deliberately thin skills without changing the broader rationale that they require careful evidence and false-positive control.
 - `qa` was originally postponed for browser reasons, but is now implemented in a narrower evidence-first form that stays honest about missing browser automation.
+- `qa-only` was originally postponed as too browser-shaped, but is now implemented as a report-only verification variant that shares `qa`'s honest runtime limits and avoids code changes.
 - `design-review` was also originally postponed, but is now implemented in an artifact-first form grounded in screenshots, mockups, and frontend evidence instead of fake live-site automation.
 - `plan-design-review` was originally postponed, but is now implemented in a narrower pre-build form focused on plans, flows, wireframes, and explicit design-state coverage before code starts.
 - Browser-parity and strongly environment-specific workflows remain unimplemented on purpose.
