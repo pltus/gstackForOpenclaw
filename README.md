@@ -1,59 +1,145 @@
 # gstackForOpenclaw
 
-OpenClaw 에 맞게 gstack 의 핵심 워크플로우를 재해석하고, 과장 없는 네이티브 skill pack 으로 재구성하기 위한 프로젝트다.
+`gstackForOpenclaw` is an OpenClaw-native reinterpretation of the most useful workflows from [gstack](https://github.com/garrytan/gstack).
 
-이 레포의 1차 목표는 곧바로 skill 을 배포하는 것이 아니라, **gstack → OpenClaw 변환 전략** 을 명확히 정의하고 점진적으로 구현하는 것이다.
+The goal is **not** to clone gstack file-for-file or pretend OpenClaw has the same runtime model. The goal is to preserve the parts of gstack that create leverage, role-based thinking, staged workflow, sharp review posture, and high-agency execution, while rewriting them for OpenClaw in a way that is honest, maintainable, and actually usable.
 
-## Goals
+## Credit to the original project
 
-- gstack 의 강한 워크플로우 철학을 유지한다.
-- Claude-centric / custom runtime 의존을 제거한다.
-- OpenClaw 의 네이티브 도구 모델(`exec`, `sessions_spawn`, `memory`, `cron`, `gh`)에 맞춘다.
-- 마케팅 문구보다 실제 동작 가능한 skill 을 우선한다.
-- 처음부터 전체 포팅하지 않고, ROI 높은 skill 부터 순차적으로 이식한다.
+This project is directly inspired by **[gstack](https://github.com/garrytan/gstack)**, the open-source workflow and skill pack created by **[Garry Tan](https://x.com/garrytan)**.
+
+If you want the original source material, philosophy, and workflow design, start here:
+
+- **Original repository:** https://github.com/garrytan/gstack
+- **Skill deep dives:** https://github.com/garrytan/gstack/blob/main/docs/skills.md
+- **Architecture notes:** https://github.com/garrytan/gstack/blob/main/ARCHITECTURE.md
+- **Builder ethos:** https://github.com/garrytan/gstack/blob/main/ETHOS.md
+
+This repository does **not** claim authorship of the original gstack concepts. It is a conversion effort: selecting which ideas survive the move to OpenClaw, which need to be narrowed, and which should be deferred or rejected.
+
+## Why this repository exists
+
+gstack is powerful, but it assumes a different operating model:
+
+- Claude/Codex-centric host assumptions
+- generated skill docs and custom setup flows
+- browser/runtime capabilities that do not map cleanly to OpenClaw
+- workflow expectations that can become misleading if copied too literally
+
+A naive port would create three problems:
+
+1. **Runtime mismatch**
+2. **fake automation claims**
+3. **high maintenance overhead**
+
+So this repository takes a different approach:
+
+- preserve the useful workflow patterns
+- redesign them around OpenClaw-native tools
+- stay narrow where the runtime is narrow
+- defer anything that would otherwise become hand-wavy or dishonest
+
+## Project goals
+
+- Preserve the strongest parts of gstack's workflow philosophy
+- Rebuild skills around OpenClaw-native tools such as `exec`, `sessions_spawn`, `memory`, `cron`, and `gh`
+- Prefer credible, evidence-first skill behavior over marketing language
+- Port in waves, starting with the highest-ROI skills
+- Keep skill files thin and operational
+- Document explicit deferrals where OpenClaw parity would be fake or premature
 
 ## Non-goals
 
-- gstack 전체를 1:1 복제하지 않는다.
-- OpenClaw 밖의 별도 orchestration runtime 을 먼저 만들지 않는다.
-- 브라우저 바이너리/telemetry/host install system 을 초기에 포팅하지 않는다.
+This project does **not** aim to:
 
-## Current Implementation Status
+- reproduce all of gstack 1:1
+- recreate Claude-specific setup, telemetry, or host install machinery
+- promise browser parity where OpenClaw does not yet support it credibly
+- front-load a giant orchestration framework before the core skills are solid
+- hide uncertainty behind broad claims like "fully automated"
+
+## Current implementation status
 
 ### Implemented skills
 
+The following OpenClaw-native skills are currently implemented:
+
+#### Planning and framing
 - `plan-ceo-review`
 - `plan-eng-review`
+- `office-hours`
+
+#### Review and diagnosis
 - `review`
 - `investigate`
 - `retro`
-- `office-hours`
+- `cso`
+- `benchmark`
+- `design-review`
+
+#### Delivery and docs
 - `document-release`
 - `ship`
-- `benchmark`
-- `cso`
 - `qa`
-- `design-review`
 
 ### Current posture
 
-- **Core first-wave skills are implemented**: planning, review, investigation, and retro flows are in place.
-- **Selected second-wave skills are also implemented** as thin OpenClaw-native workflows where the scope stayed honest (`office-hours`, `document-release`, `ship`, `benchmark`, `cso`, `qa`, `design-review`).
-- **Browser parity and deployment-heavy workflows remain intentionally out of scope** even though `qa` and `design-review` now exist in narrower artifact-first forms without fake browser or deploy promises.
+- **Core first-wave skills are implemented.**
+  Planning, review, investigation, and retrospective flows are in place.
 
-## Project Docs
+- **Selected second-wave skills are implemented in narrowed form.**
+  Skills like `qa` and `design-review` exist, but in OpenClaw-native, artifact-first forms rather than fake browser-parity versions.
+
+- **Some original gstack areas remain intentionally deferred.**
+  Browser-heavy and deployment-heavy flows are still treated carefully because generic versions would overpromise.
+
+## What is intentionally deferred
+
+Some skills or areas are still deferred or reinterpreted because they are too environment-specific or too runtime-dependent to implement honestly right now.
+
+Examples include:
+
+- `land-and-deploy`
+- `browse`
+- `setup-browser-cookies`
+- full browser-driven live-site automation parity
+- generic deploy/rollback/health-check automation across unknown infra
+
+In other words: if it cannot be made OpenClaw-native **without bluffing**, it stays out or stays narrow.
+
+## Repository docs
 
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
 - [Skill Matrix](docs/SKILL_MATRIX.md)
 
-## Working Principle
+These two docs explain:
+
+- what was kept vs modified vs deferred
+- why certain gstack skills were reinterpreted rather than copied
+- what the phased implementation strategy looks like
+
+## Working principle
 
 **Direct port is the wrong goal.**
 
-The goal is to preserve the useful parts of gstack:
+The right goal is to preserve the useful parts of gstack:
+
 - role-based thinking
 - staged workflow
 - explicit review criteria
 - high-agency execution
 
 while rewriting the operating model for OpenClaw.
+
+## How to read this repository
+
+If you are new here, the best order is:
+
+1. Read this `README.md`
+2. Read [docs/CONVERSION_PLAN.md](docs/CONVERSION_PLAN.md)
+3. Read [docs/SKILL_MATRIX.md](docs/SKILL_MATRIX.md)
+4. Then inspect the implemented skills under `skills/`
+
+## Project stance in one sentence
+
+**Build the smallest OpenClaw-native skill pack that preserves gstack's leverage without inheriting gstack's runtime baggage.**
