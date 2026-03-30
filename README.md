@@ -29,6 +29,7 @@ OpenClaw 에 맞게 gstack 의 핵심 워크플로우를 재해석하고, 과장
 ## Project Docs
 
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
+- [Skill Matrix](docs/SKILL_MATRIX.md)
 
 ## Working Principle
 
