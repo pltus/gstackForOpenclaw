@@ -6,6 +6,7 @@ Current implemented skills in this repo:
 
 - `plan-ceo-review`
 - `plan-eng-review`
+- `plan-design-review`
 - `review`
 - `investigate`
 - `retro`
@@ -17,7 +18,7 @@ Current implemented skills in this repo:
 - `qa`
 - `design-review`
 
-Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `qa` and `design-review` have been reintroduced in narrower evidence-first / artifact-first forms that do not promise built-in browser automation. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
+Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `plan-design-review`, `qa`, and `design-review` have been reintroduced in narrower planning-first / evidence-first / artifact-first forms that do not promise browser parity or finished-design certainty. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
 
 ## 1. Purpose
 
@@ -204,6 +205,9 @@ Worth implementing only as a narrower OpenClaw-native verification workflow: dif
 
 ### `design-review`
 Worth implementing only as an artifact-first visual and UX review workflow grounded in screenshots, mockups, and frontend diffs. The live-site browser audit + auto-fix loop remains out of scope.
+
+### `plan-design-review`
+Worth implementing only as a pre-build UX and interaction-plan review against specs, wireframes, and user flows. It should stay honest about missing visuals and avoid pretending text-only plans can answer every visual-polish question.
 
 ## Tier 3: Postpone
 

@@ -67,6 +67,7 @@ The following OpenClaw-native skills are currently implemented:
 #### Planning and framing
 - `plan-ceo-review`
 - `plan-eng-review`
+- `plan-design-review`
 - `office-hours`
 
 #### Review and diagnosis
@@ -88,7 +89,7 @@ The following OpenClaw-native skills are currently implemented:
   Planning, review, investigation, and retrospective flows are in place.
 
 - **Selected second-wave skills are implemented in narrowed form.**
-  Skills like `qa` and `design-review` exist, but in OpenClaw-native, artifact-first forms rather than fake browser-parity versions.
+  Skills like `plan-design-review`, `qa`, and `design-review` exist, but in OpenClaw-native planning-first or artifact-first forms rather than fake browser-parity versions.
 
 - **Some original gstack areas remain intentionally deferred.**
   Browser-heavy and deployment-heavy flows are still treated carefully because generic versions would overpromise.
