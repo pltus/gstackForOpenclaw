@@ -30,7 +30,7 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `cso` | **Consider Later** | Medium | Security review is important, but needs careful false-positive control and a documented threat-modeling style. | security review skill with confidence thresholds and exploit-scenario reporting |
 | `land-and-deploy` | **Postpone** | Low-medium | Deployment flows are highly environment-specific and easy to fake. Not a safe early abstraction. | if ever added, should be template-driven and repo-specific |
 | `canary` | **Postpone** | Low-medium | Depends on deployment maturity, telemetry, and rollback conventions that this project does not have yet. | likely a workflow doc or script set, not an early generic skill |
-| `qa` | **Postpone** | Low | gstack’s QA value depends heavily on real browser/runtime capability. OpenClaw-native parity is not ready. | revisit only after a credible browser story exists |
+| `qa` | **Consider Later** | Medium | Full gstack-style browser QA is still out of scope, but a narrower OpenClaw-native verification workflow is credible and useful. | evidence-first QA skill built around diffs, repo-native tests, manual repro steps, and honest limits |
 | `qa-only` | **Postpone** | Low | Same runtime constraint as `qa`; report-only mode does not remove the browser dependency. | could later become a non-mutating testing/reporting variant |
 | `browse` | **Postpone** | Low | This is a runtime capability question, not a planning-docs question. Early porting would create false expectations. | redesign later around actual available browser tooling |
 | `connect-chrome` | **Postpone** | Low | Purely runtime-specific. Outside the first OpenClaw-native scope. | none until browser integration is a real product requirement |
@@ -62,12 +62,14 @@ Implemented in this repo today:
 - `ship`
 - `benchmark`
 - `cso`
+- `qa`
 
 Notes:
 
 - The **decision bucket** in the matrix is still the prioritization judgment from the planning pass, not a live deployment gate.
 - `benchmark` and `cso` were originally placed in **Consider Later**, but have now been implemented as deliberately thin skills without changing the broader rationale that they require careful evidence and false-positive control.
-- Browser-heavy and environment-specific workflows remain unimplemented on purpose.
+- `qa` was originally postponed for browser reasons, but is now implemented in a narrower evidence-first form that stays honest about missing browser automation.
+- Browser-parity and strongly environment-specific workflows remain unimplemented on purpose.
 
 ## What this means for Phase 0 → Phase 1
 
@@ -90,7 +92,7 @@ These are the best first candidates because they:
 
 The following should stay out of the first implementation phase unless runtime assumptions materially change:
 
-- browser-heavy workflows (`browse`, `qa`, `qa-only`, `connect-chrome`, `setup-browser-cookies`)
+- browser-heavy workflows (`browse`, `qa-only`, `connect-chrome`, `setup-browser-cookies`)
 - deployment-heavy workflows (`land-and-deploy`, `canary`, `setup-deploy`)
 - policy-only wrappers (`freeze`, `guard`, `unfreeze`, `careful`)
 - host-specific or brand-specific wrappers (`gstack-upgrade`, `codex`)
