@@ -15,8 +15,9 @@ Current implemented skills in this repo:
 - `benchmark`
 - `cso`
 - `qa`
+- `design-review`
 
-Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `qa` has been reintroduced in a narrower evidence-first form that does not promise built-in browser automation.
+Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `qa` and `design-review` have been reintroduced in narrower evidence-first / artifact-first forms that do not promise built-in browser automation. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
 
 ## 1. Purpose
 
@@ -201,9 +202,12 @@ Should only land after review flows are credible.
 ### `qa`
 Worth implementing only as a narrower OpenClaw-native verification workflow: diff-aware testing, evidence-backed bug reporting, and regression follow-up using the repo's real test surfaces. Full browser-led parity remains out of scope.
 
+### `design-review`
+Worth implementing only as an artifact-first visual and UX review workflow grounded in screenshots, mockups, and frontend diffs. The live-site browser audit + auto-fix loop remains out of scope.
+
 ## Tier 3: Postpone
 
-### `design-review`, `browse`, `setup-browser-cookies`
+### `browse`, `setup-browser-cookies`
 These still depend heavily on a browsing/runtime story that should not be rushed.
 
 ### `careful`, `freeze`, `guard`

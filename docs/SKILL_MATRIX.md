@@ -28,7 +28,7 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `ship` | **Consider Later** | Medium | High user value, but easy to overpromise. Should follow once review boundaries and CI expectations are clear. | thin release checklist with explicit handoff points, not "magic ship" automation |
 | `benchmark` | **Consider Later** | Medium | Performance review is useful, but only after the repo has stable workloads and measurement conventions. | helper-oriented skill around repeatable benchmark commands and result summaries |
 | `cso` | **Consider Later** | Medium | Security review is important, but needs careful false-positive control and a documented threat-modeling style. | security review skill with confidence thresholds and exploit-scenario reporting |
-| `land-and-deploy` | **Postpone** | Low-medium | Deployment flows are highly environment-specific and easy to fake. Not a safe early abstraction. | if ever added, should be template-driven and repo-specific |
+| `land-and-deploy` | **Postpone** | Low-medium | Reassessed during Phase 2 and still deferred: deployment flows remain too environment-specific and too easy to fake as a generic skill. | if ever added, should be template-driven and repo-specific |
 | `canary` | **Postpone** | Low-medium | Depends on deployment maturity, telemetry, and rollback conventions that this project does not have yet. | likely a workflow doc or script set, not an early generic skill |
 | `qa` | **Consider Later** | Medium | Full gstack-style browser QA is still out of scope, but a narrower OpenClaw-native verification workflow is credible and useful. | evidence-first QA skill built around diffs, repo-native tests, manual repro steps, and honest limits |
 | `qa-only` | **Postpone** | Low | Same runtime constraint as `qa`; report-only mode does not remove the browser dependency. | could later become a non-mutating testing/reporting variant |
@@ -36,8 +36,8 @@ Baseline source for skill names: the public gstack README skill list reviewed du
 | `connect-chrome` | **Postpone** | Low | Purely runtime-specific. Outside the first OpenClaw-native scope. | none until browser integration is a real product requirement |
 | `setup-browser-cookies` | **Postpone** | Low | Operationally sensitive and tightly coupled to a browser stack that this project is explicitly not recreating yet. | none for early phases |
 | `setup-deploy` | **Postpone** | Low-medium | May be useful in some repos, but too environment-specific for the first pass. | repo-local reference docs or scripts, not a generic early skill |
-| `plan-design-review` | **Postpone** | Medium | The critique lens is valuable, but this repo should first prove product + engineering planning before adding a design review system. | later skill with references/checklists and maybe screenshot inputs |
-| `design-review` | **Postpone** | Medium | Strong value when visuals exist, but it depends on artifact conventions and often browser/screenshot workflows. | could later combine static asset review with code-level UI inspection |
+| `plan-design-review` | **Postpone** | Medium | The critique lens is valuable, but this repo should first prove the narrower post-implementation design review flow before adding a plan-mode design system. | later skill with references/checklists and maybe screenshot inputs |
+| `design-review` | **Consider Later** | Medium | Strong value when visual evidence exists. A narrower artifact-first review is credible even though gstack's live-site browser audit + auto-fix loop is not. | artifact-first design review using screenshots, mockups, recordings, and frontend diffs |
 | `design-consultation` | **Postpone** | Medium-low | Too open-ended for an early pack that is trying to stay sharp, thin, and operational. | maybe later as a guided ideation/reference workflow |
 | `design-shotgun` | **Postpone** | Low | Multi-variant visual exploration is attractive but far from this repo’s immediate planning and review goals. | likely requires stronger generation + comparison tooling first |
 | `autoplan` | **Reject / Absorb** | Medium | The intent is useful, but the standalone command is less important than embedding planning rigor into the main planning skills. | absorb into `office-hours` / `plan-*` patterns instead of porting directly |
@@ -63,12 +63,14 @@ Implemented in this repo today:
 - `benchmark`
 - `cso`
 - `qa`
+- `design-review`
 
 Notes:
 
 - The **decision bucket** in the matrix is still the prioritization judgment from the planning pass, not a live deployment gate.
 - `benchmark` and `cso` were originally placed in **Consider Later**, but have now been implemented as deliberately thin skills without changing the broader rationale that they require careful evidence and false-positive control.
 - `qa` was originally postponed for browser reasons, but is now implemented in a narrower evidence-first form that stays honest about missing browser automation.
+- `design-review` was also originally postponed, but is now implemented in an artifact-first form grounded in screenshots, mockups, and frontend evidence instead of fake live-site automation.
 - Browser-parity and strongly environment-specific workflows remain unimplemented on purpose.
 
 ## What this means for Phase 0 → Phase 1
