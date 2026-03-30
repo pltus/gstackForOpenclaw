@@ -18,13 +18,26 @@ OpenClaw 에 맞게 gstack 의 핵심 워크플로우를 재해석하고, 과장
 - OpenClaw 밖의 별도 orchestration runtime 을 먼저 만들지 않는다.
 - 브라우저 바이너리/telemetry/host install system 을 초기에 포팅하지 않는다.
 
-## Initial Scope
+## Current Implementation Status
 
-1. `plan-ceo-review`
-2. `plan-eng-review`
-3. `review`
-4. `investigate`
-5. `retro`
+### Implemented skills
+
+- `plan-ceo-review`
+- `plan-eng-review`
+- `review`
+- `investigate`
+- `retro`
+- `office-hours`
+- `document-release`
+- `ship`
+- `benchmark`
+- `cso`
+
+### Current posture
+
+- **Core first-wave skills are implemented**: planning, review, investigation, and retro flows are in place.
+- **Selected second-wave skills are also implemented** as thin OpenClaw-native workflows where the scope stayed honest (`office-hours`, `document-release`, `ship`, `benchmark`, `cso`).
+- **Browser-heavy and deployment-heavy workflows remain intentionally out of scope** until the runtime and repo conventions justify them.
 
 ## Project Docs
 
