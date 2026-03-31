@@ -114,12 +114,14 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
 - [Skill Matrix](docs/SKILL_MATRIX.md)
+- [Parity Audit](docs/PARITY_AUDIT.md)
 - [Decision: defer `design-consultation`](docs/DECISIONS/design-consultation-defer.md)
 - [Validation Summary](docs/VALIDATION_SUMMARY.md)
 
 These docs explain:
 
 - what was kept vs modified vs deferred
+- where current parity is real vs narrowed vs intentionally absent
 - why certain gstack skills were reinterpreted rather than copied
 - what the phased implementation strategy looks like
 - what the latest lightweight validation pass checked and cleaned up
@@ -144,7 +146,8 @@ If you are new here, the best order is:
 1. Read this `README.md`
 2. Read [docs/CONVERSION_PLAN.md](docs/CONVERSION_PLAN.md)
 3. Read [docs/SKILL_MATRIX.md](docs/SKILL_MATRIX.md)
-4. Then inspect the implemented skills under `skills/`
+4. Read [docs/PARITY_AUDIT.md](docs/PARITY_AUDIT.md)
+5. Then inspect the implemented skills under `skills/`
 
 ## Project stance in one sentence
 
