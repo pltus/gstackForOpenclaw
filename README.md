@@ -116,6 +116,7 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 
 ## Repository docs
 
+- [Implementation Inventory](docs/IMPLEMENTATION_INVENTORY.md)
 - [Parity Audit](docs/PARITY_AUDIT.md)
 - [Skill Matrix](docs/SKILL_MATRIX.md)
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
@@ -125,6 +126,7 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 
 These docs explain:
 
+- the compact current-state implementation inventory
 - what was kept vs narrowed vs deferred
 - where current parity is real vs intentionally limited vs absent
 - why certain gstack skills were reinterpreted rather than copied
