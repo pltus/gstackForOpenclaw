@@ -119,6 +119,7 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 - [Parity Audit](docs/PARITY_AUDIT.md)
 - [Skill Matrix](docs/SKILL_MATRIX.md)
 - [Conversion Plan](docs/CONVERSION_PLAN.md)
+- [Claw Code Notes](docs/CLAW_CODE_NOTES.md)
 - [Decision: defer `design-consultation`](docs/DECISIONS/design-consultation-defer.md)
 - [Validation Summary](docs/VALIDATION_SUMMARY.md)
 
@@ -151,7 +152,8 @@ If you are new here, the best order is:
 2. Read [docs/PARITY_AUDIT.md](docs/PARITY_AUDIT.md)
 3. Read [docs/SKILL_MATRIX.md](docs/SKILL_MATRIX.md)
 4. Read [docs/CONVERSION_PLAN.md](docs/CONVERSION_PLAN.md)
-5. Then inspect the implemented skills under `skills/`
+5. Read [docs/CLAW_CODE_NOTES.md](docs/CLAW_CODE_NOTES.md) for what is worth learning from `claw-code` without copying its baggage
+6. Then inspect the implemented skills under `skills/`
 
 ## Project stance in one sentence
 
