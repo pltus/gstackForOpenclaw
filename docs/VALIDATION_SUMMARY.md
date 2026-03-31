@@ -77,4 +77,6 @@ These were documentation-drift issues rather than skill-logic failures:
 
 No new major skill was added from this pass.
 
+Under the repo's readiness vocabulary, this note should be read primarily as **`validated-structure`** evidence for the reviewed skills and docs, not as broad **`validated-workflow`** proof.
+
 The main remaining work is still selective: only revisit deferred browser-heavy, deployment-heavy, or broader design-consultation areas when the runtime and input story become materially stronger.
