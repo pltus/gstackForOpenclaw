@@ -12,6 +12,20 @@ Use it when you want a quick operational answer to:
 
 It is intentionally shorter than the parity audit and less historical than the conversion plan.
 
+## Readiness vocabulary used here
+
+This repo now uses a small readiness vocabulary documented in [`READINESS_LEVELS.md`](READINESS_LEVELS.md).
+
+Short version:
+
+- **`documented`** = described clearly in repo docs
+- **`implemented`** = exists in the repo as a real skill/artifact
+- **`validated-structure`** = checked for repo shape, references, and doc consistency
+- **`validated-workflow`** = behavior-level workflow validation in a named runtime context
+- **`runtime-dependent`** = confidence depends on environment/tooling the repo does not guarantee
+
+These are tags, not a maturity scoreboard.
+
 ## Repo shape at a glance
 
 ### Implemented skill count
@@ -23,6 +37,13 @@ It is intentionally shorter than the parity audit and less historical than the c
 - there are **no repo-level helper scripts** or command-router layers in the current pack
 
 ### Current implementation posture
+
+Current repo-wide reading:
+
+- the pack is broadly **documented** and **implemented**
+- parts of the newer design/planning/testing wave are **validated-structure**
+- very little should yet be read as **validated-workflow**
+- several workflows remain partly **runtime-dependent** when they touch real tests, release context, security posture, or environment-specific evidence
 
 The repo is strongest in **planning, review, diagnosis, release/docs handoff, and narrow evidence-first QA/design workflows**.
 
@@ -88,6 +109,16 @@ In practice, most implemented skills should be read as **implemented and reinter
 
 ## Validation state
 
+### Readiness snapshot
+
+At the moment, the honest default for most implemented skills is:
+
+- **`documented` + `implemented`**
+- sometimes **`validated-structure`** where a dedicated repo note exists
+- occasionally **`runtime-dependent`** where confidence depends on repo/runtime specifics
+
+There is not yet a repo-wide basis for claiming broad **`validated-workflow`** status.
+
 ### What the repo can honestly claim today
 
 Documented validation in this repo is currently **lightweight and structural**, not broad runtime certification.
@@ -109,7 +140,7 @@ Documented checks currently include:
 - `qa-only`
 - the docs that describe their current status
 
-That validation pass explicitly describes itself as **documentation-and-structure validation**, not fake runtime testing.
+That validation pass explicitly maps most cleanly to **`validated-structure`**, not broad **`validated-workflow`** status.
 
 ### What is not yet represented as validated
 
@@ -139,6 +170,7 @@ Use the right document for the right question:
 - **Current parity truth and rationale** → [`PARITY_AUDIT.md`](PARITY_AUDIT.md)
 - **Historical priority vs current status** → [`SKILL_MATRIX.md`](SKILL_MATRIX.md)
 - **Implementation history and repo stance** → [`CONVERSION_PLAN.md`](CONVERSION_PLAN.md)
+- **Readiness vocabulary** → [`READINESS_LEVELS.md`](READINESS_LEVELS.md)
 - **Documented validation pass** → [`VALIDATION_SUMMARY.md`](VALIDATION_SUMMARY.md)
 - **Why `claw-code` matters and what not to copy** → [`CLAW_CODE_NOTES.md`](CLAW_CODE_NOTES.md)
 
@@ -148,7 +180,7 @@ When this repo changes, update this inventory if any of the following become tru
 
 1. a skill is added, removed, or renamed
 2. a deferred area becomes implemented or intentionally rejected
-3. a new validation note materially changes confidence level
+3. a new validation note materially changes readiness/confidence level
 4. README status wording changes enough that this summary would drift
 5. a skill gains scripts or other implementation artifacts that change repo shape
 
