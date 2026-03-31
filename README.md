@@ -35,14 +35,14 @@ A naive port would create three problems:
 So this repository takes a different approach:
 
 - preserve the useful workflow patterns
-- redesign them around OpenClaw-native tools
+- redesign them around OpenClaw-native tools and patterns
 - stay narrow where the runtime is narrow
 - defer anything that would otherwise become hand-wavy or dishonest
 
 ## Project goals
 
 - Preserve the strongest parts of gstack's workflow philosophy
-- Rebuild skills around OpenClaw-native tools such as `exec`, `sessions_spawn`, `memory`, `cron`, and `gh`
+- Rebuild skills around OpenClaw-native tools and patterns such as `exec`, sub-agents, repo docs, and GitHub workflows where they are actually available
 - Prefer credible, evidence-first skill behavior over marketing language
 - Port in waves, starting with the highest-ROI skills
 - Keep skill files thin and operational
@@ -86,14 +86,17 @@ The following OpenClaw-native skills are currently implemented:
 
 ### Current posture
 
-- **Core first-wave skills are implemented.**
-  Planning, review, investigation, and retrospective flows are in place.
+- **Core planning / review / diagnosis coverage is implemented.**
+  The strongest-fit gstack workflows for OpenClaw are already present.
 
-- **Selected second-wave skills are implemented in narrowed form.**
-  Skills like `plan-design-review`, `qa`, `qa-only`, and `design-review` exist, but in OpenClaw-native planning-first, evidence-first, or artifact-first forms rather than fake browser-parity versions.
+- **Several adjacent workflows are implemented only in narrowed form.**
+  `plan-design-review`, `design-review`, `qa`, and `qa-only` are real, but intentionally framed as planning-first, artifact-first, or evidence-first workflows rather than fake browser-parity versions.
 
 - **Some original gstack areas remain intentionally deferred.**
-  Browser-heavy and deployment-heavy flows are still treated carefully because generic versions would overpromise.
+  Browser-heavy, deployment-heavy, memory-explicit, and other environment-specific flows are still treated cautiously because generic versions would overpromise.
+
+- **The parity audit is the current-state truth source.**
+  The skill matrix preserves historical prioritization plus current status, while the conversion plan explains how the implementation waves happened.
 
 ## What is intentionally deferred
 
@@ -105,6 +108,7 @@ Examples include:
 - `design-consultation`
 - `browse`
 - `setup-browser-cookies`
+- `learn`
 - full browser-driven live-site automation parity
 - generic deploy/rollback/health-check automation across unknown infra
 
@@ -112,18 +116,18 @@ In other words: if it cannot be made OpenClaw-native **without bluffing**, it st
 
 ## Repository docs
 
-- [Conversion Plan](docs/CONVERSION_PLAN.md)
-- [Skill Matrix](docs/SKILL_MATRIX.md)
 - [Parity Audit](docs/PARITY_AUDIT.md)
+- [Skill Matrix](docs/SKILL_MATRIX.md)
+- [Conversion Plan](docs/CONVERSION_PLAN.md)
 - [Decision: defer `design-consultation`](docs/DECISIONS/design-consultation-defer.md)
 - [Validation Summary](docs/VALIDATION_SUMMARY.md)
 
 These docs explain:
 
-- what was kept vs modified vs deferred
-- where current parity is real vs narrowed vs intentionally absent
+- what was kept vs narrowed vs deferred
+- where current parity is real vs intentionally limited vs absent
 - why certain gstack skills were reinterpreted rather than copied
-- what the phased implementation strategy looks like
+- which parts of the roadmap are implementation history vs active current stance
 - what the latest lightweight validation pass checked and cleaned up
 
 ## Working principle
@@ -144,9 +148,9 @@ while rewriting the operating model for OpenClaw.
 If you are new here, the best order is:
 
 1. Read this `README.md`
-2. Read [docs/CONVERSION_PLAN.md](docs/CONVERSION_PLAN.md)
+2. Read [docs/PARITY_AUDIT.md](docs/PARITY_AUDIT.md)
 3. Read [docs/SKILL_MATRIX.md](docs/SKILL_MATRIX.md)
-4. Read [docs/PARITY_AUDIT.md](docs/PARITY_AUDIT.md)
+4. Read [docs/CONVERSION_PLAN.md](docs/CONVERSION_PLAN.md)
 5. Then inspect the implemented skills under `skills/`
 
 ## Project stance in one sentence

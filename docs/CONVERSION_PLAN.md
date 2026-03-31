@@ -19,7 +19,13 @@ Current implemented skills in this repo:
 - `qa-only`
 - `design-review`
 
-Still intentionally postponed: browser-parity, deployment-heavy, and strongly environment-specific workflows. `plan-design-review`, `qa`, `qa-only`, and `design-review` are now live in narrower planning-first / evidence-first / artifact-first forms that do not promise browser parity or finished-design certainty. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
+Current truth-source note:
+
+- [PARITY_AUDIT.md](PARITY_AUDIT.md) is the repo’s source of truth for current parity status and rationale.
+- [SKILL_MATRIX.md](SKILL_MATRIX.md) preserves both historical prioritization and current status.
+- This plan now treats the earlier tiers/phases mostly as implementation history rather than as an open-ended forward roadmap.
+
+Still intentionally deferred: browser-parity, deployment-heavy, memory-explicit, and strongly environment-specific workflows. `plan-design-review`, `qa`, `qa-only`, and `design-review` are now live in narrower planning-first / evidence-first / artifact-first forms that do not promise browser parity or finished-design certainty. `land-and-deploy` remains deferred because deployment automation would still be too environment-specific.
 
 ## 1. Purpose
 
@@ -67,7 +73,7 @@ These workflows are mostly model-and-process problems, not browser-runtime probl
 That means the highest-ROI path is:
 
 1. port the high-leverage thinking workflows first
-2. bind them to OpenClaw-native tools
+2. bind them to OpenClaw-native tools and patterns
 3. add execution helpers only where the runtime clearly supports them
 
 ### What to preserve from gstack
@@ -95,11 +101,10 @@ That means the highest-ROI path is:
 If OpenClaw already has a first-class capability, use it directly.
 
 Examples:
-- use `sessions_spawn` for sub-agent work
-- use `gh` / GitHub skill for GitHub operations
-- use `memory_search` / `memory_get` for durable context
-- use `cron` for periodic reminders or scheduled reviews
 - use `exec` for local analysis and scripts
+- use native sub-agent patterns when specialist parallel work is genuinely helpful
+- use repo docs or explicit artifacts instead of inventing hidden workflow state
+- use GitHub tooling where repository workflows already depend on GitHub
 
 ### 4.2 Thin skills, rich behavior
 
@@ -134,11 +139,15 @@ The goal is to preserve useful judgment patterns in a voice and structure that f
 
 ---
 
-## 5. Skill Selection Strategy
+## 5. Historical Skill Selection Strategy
 
-## Tier 1: Build first
+This section is kept as planning history.
+It explains how the earlier implementation waves were prioritized.
+For the repo’s **current** state, use `PARITY_AUDIT.md` and `SKILL_MATRIX.md`.
 
-These are highest ROI and lowest runtime mismatch.
+## Historical Tier 1: Build first
+
+These were the highest-ROI, lowest-mismatch starting points.
 
 ### 1. `plan-ceo-review`
 
@@ -149,7 +158,7 @@ These are highest ROI and lowest runtime mismatch.
 
 **OpenClaw fit**
 - mostly conversation + document analysis
-- can use `read`, `write`, `memory_search`, `exec` lightly
+- can use `read`, `write`, and `exec` lightly
 
 ### 2. `plan-eng-review`
 
@@ -159,7 +168,7 @@ These are highest ROI and lowest runtime mismatch.
 
 **OpenClaw fit**
 - works well with repo docs, diffs, and targeted file reads
-- may optionally spawn sub-agents later for deeper analysis
+- may optionally use sub-agents later for deeper analysis
 
 ### 3. `review`
 
@@ -184,48 +193,59 @@ These are highest ROI and lowest runtime mismatch.
 
 **Why early-ish**
 - useful once the other workflows exist
-- can leverage git history and memory
+- can leverage git history and explicit repo context
 
 **OpenClaw fit**
-- easy to schedule via `cron` later if desired
+- works without requiring browser or deployment machinery
 
-## Tier 2: Consider after core pack stabilizes
+## Historical Tier 2: Consider after core pack stabilizes
+
+Several skills in this tier have now been implemented in narrower forms.
+The tier is preserved here only to show the original sequencing logic.
 
 ### `office-hours`
-Good fit, but needs careful tone and interaction design.
+Good fit, but originally needed careful tone and interaction design.
+Now implemented in a narrower front-door framing form.
 
 ### `document-release`
-Useful, but depends on docs conventions and release process maturity.
+Originally dependent on docs conventions and release process maturity.
+Now implemented as a thin documentation-oriented workflow.
 
 ### `ship`
-Potentially high value, but risky to over-automate too early.
-Should only land after review flows are credible.
+Originally seen as high value but risky to over-automate too early.
+Now implemented as a narrow checklist/handoff skill, not generic deployment automation.
 
 ### `qa`
-Worth implementing only as a narrower OpenClaw-native verification workflow: diff-aware testing, evidence-backed bug reporting, and regression follow-up using the repo's real test surfaces. Full browser-led parity remains out of scope.
+Originally worth implementing only as a narrower OpenClaw-native verification workflow.
+That narrower evidence-first implementation now exists; full browser-led parity still does not.
 
 ### `qa-only`
-Worth implementing only as the report-only counterpart to `qa`: same verification rigor, same honest runtime limits, but no quiet code changes or auto-fix claims.
+Originally scoped as the report-only counterpart to `qa`.
+That narrower non-mutating implementation now exists.
 
 ### `design-review`
-Worth implementing only as an artifact-first visual and UX review workflow grounded in screenshots, mockups, and frontend diffs. The live-site browser audit + auto-fix loop remains out of scope.
+Originally worth implementing only as an artifact-first visual and UX review workflow.
+That narrower artifact-first implementation now exists; live-site browser audit parity still does not.
 
 ### `plan-design-review`
-Worth implementing only as a pre-build UX and interaction-plan review against specs, wireframes, and user flows. It should stay honest about missing visuals and avoid pretending text-only plans can answer every visual-polish question.
+Originally worth implementing only as a pre-build UX and interaction-plan review against specs, wireframes, and user flows.
+That narrower implementation now exists.
 
 ### `design-consultation`
 Still deferred. The current repo can support product framing, plan-level UX review, and artifact-first critique, but not a broad design-system-plus-mockup-plus-research workflow without drifting into vague or fictional promises.
 
-## Tier 3: Postpone
+## Historical Tier 3: Postpone
+
+These areas were postponed for runtime reasons, and that defer logic still largely holds.
 
 ### `browse`, `setup-browser-cookies`
 These still depend heavily on a browsing/runtime story that should not be rushed.
 
 ### `careful`, `freeze`, `guard`
-Conceptually useful, but in OpenClaw these should be designed around actual tool constraints, not copied as slogans.
+Conceptually useful, but in OpenClaw these are better expressed through instructions, policy, or future platform behavior than through slogan-skills.
 
 ### `codex`
-Potentially useful as a second-opinion pattern, but OpenClaw already has ACP/sub-agent patterns. Needs native design.
+Potentially useful as a second-opinion pattern, but OpenClaw already has native sub-agent patterns. It still does not justify a branded standalone skill.
 
 ---
 
@@ -274,8 +294,8 @@ Notes:
 | host-specific setup | none by default, rely on existing OpenClaw runtime |
 | browse binary | postpone or redesign later |
 | telemetry / contributor mode | omit initially |
-| workflow state files | prefer conversation state, memory, repo docs, or explicit artifacts |
-| Codex external review | `sessions_spawn` / ACP when genuinely needed |
+| workflow state files | prefer repo docs, explicit artifacts, or visible working context |
+| Codex external review | native sub-agent patterns when genuinely needed |
 | CLI task automation | `exec` with clear boundaries |
 
 ### Important implication
@@ -333,9 +353,9 @@ The first-class unit is the **skill**, not a meta-wrapper around slash commands.
 - investigate enforces root-cause-first behavior
 - retro can produce a useful report from repository activity
 
-## Phase 4 — Narrow execution and review expansions *(largely complete for the current scope)*
+## Phase 4 — Narrow execution and review expansions *(complete for the current scope)*
 
-Potential candidates:
+Completed or substantially completed candidates in this wave:
 - office-hours
 - document-release
 - ship
@@ -345,12 +365,23 @@ Potential candidates:
 - design-review
 - qa
 - qa-only
-- codex-style second opinion pattern
+
+Still **not** promoted from this wave into implementation:
+- `design-consultation`
+- browser-heavy workflows
+- deployment-heavy workflows
+- explicit memory-management skill work
+- branded second-opinion wrapper skills
 
 ### Exit criteria
 - implemented expansions stay narrow, honest, and tool-realistic
 - deferred areas remain explicitly deferred instead of being hand-waved into scope
 - validation confirms trigger clarity, workflow coherence, and internal consistency across the newer skills
+
+### Current interpretation
+
+There is no committed “Phase 5” broadening wave today.
+The current strategy is to keep the repo honest, tighten docs, and revisit deferred areas only when the runtime case becomes concrete.
 
 ---
 
@@ -419,26 +450,29 @@ A successful conversion should meet these standards:
 
 ## 11. Current Next Steps
 
-1. Keep validating newer second-wave skills at the repo level
+1. Keep validating the implemented pack at the repo level
    - documentation shape
    - trigger clarity
    - workflow coherence
    - cross-link and reference integrity
 
-2. Tighten repo docs when planning-era wording drifts behind implementation reality
+2. Keep tightening docs when planning-era wording drifts behind implementation reality
    - phase labels
-   - matrix status buckets
-   - deferred-scope criteria
+   - status buckets
+   - defer logic
+   - current-state source-of-truth references
 
-3. Revisit deferred skills only when the runtime story becomes more concrete
+3. Revisit deferred skills only when the runtime story becomes concrete enough to describe honestly
    - stronger browser support
    - clearer deployment conventions
    - repeatable design-input bundles
+   - stable memory patterns if `learn` ever becomes real
 
 4. Prefer small credibility upgrades over broad scope expansion
    - sharper docs
    - clearer boundaries
    - better validation notes
+   - no new broad implementation wave without a concrete runtime reason
 
 ---
 
@@ -450,16 +484,17 @@ A successful conversion should meet these standards:
 - do not start with browser parity
 - start with planning/review skills
 - optimize for OpenClaw-native behavior, not cosmetic similarity
+- treat the current implemented pack as broadly complete for this scope, with selective deferred revisits only when justified
 
 ### Not yet decided
-- whether to add explicit scripts for diff parsing
-- whether to maintain a root umbrella skill later
-- whether `office-hours` belongs in Tier 1 or Tier 2
-- whether `ship` should exist as a skill or as a documented workflow pattern first
+- whether `learn` should ever exist as an explicit skill rather than remain an implicit pattern
+- whether any browser-adjacent review layer becomes honest enough to promote beyond defer status
+- whether deployment workflows, if ever added, should be repo-specific templates rather than generic skills
 
 ### Newly reaffirmed
 - `design-consultation` stays deferred until there is a narrower, repeatable, OpenClaw-native shape for it
 - the current repo has enough coverage in planning/design/QA to prioritize validation and documentation cleanup over new broad skills
+- the parity audit should stay the source of truth when README or matrix wording starts drifting
 
 ---
 
