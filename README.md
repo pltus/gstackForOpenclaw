@@ -60,43 +60,16 @@ This project does **not** aim to:
 
 ## Current implementation status
 
-### Implemented skills
+For the live skill inventory and per-skill readiness, use [Implementation Inventory](docs/IMPLEMENTATION_INVENTORY.md).
 
-The following OpenClaw-native skills are currently implemented:
+At a high level, the repo is already strongest in planning, review, diagnosis, and narrow release/docs handoff workflows. Several adjacent skills remain intentionally narrower than original gstack naming might suggest, and browser-heavy, deployment-heavy, memory-explicit, and other environment-specific areas are still deferred on purpose.
 
-#### Planning and framing
-- `plan-ceo-review`
-- `plan-eng-review`
-- `plan-design-review`
-- `office-hours`
+For current-state questions, use these docs as canonical:
 
-#### Review and diagnosis
-- `review`
-- `investigate`
-- `retro`
-- `cso`
-- `benchmark`
-- `design-review`
-
-#### Delivery and docs
-- `document-release`
-- `ship`
-- `qa`
-- `qa-only`
-
-### Current posture
-
-- **Core planning / review / diagnosis coverage is implemented.**
-  The strongest-fit gstack workflows for OpenClaw are already present.
-
-- **Several adjacent workflows are implemented only in narrowed form.**
-  `plan-design-review`, `design-review`, `qa`, and `qa-only` are real, but intentionally framed as planning-first, artifact-first, or evidence-first workflows rather than fake browser-parity versions.
-
-- **Some original gstack areas remain intentionally deferred.**
-  Browser-heavy, deployment-heavy, memory-explicit, and other environment-specific flows are still treated cautiously because generic versions would overpromise.
-
-- **The parity audit is the current-state truth source.**
-  The skill matrix preserves historical prioritization plus current status, while the conversion plan explains how the implementation waves happened.
+- [Implementation Inventory](docs/IMPLEMENTATION_INVENTORY.md) for the current implemented pack and per-skill readiness
+- [Parity Audit](docs/PARITY_AUDIT.md) for current parity status, rationale, and defer/reject boundaries
+- [Skill Matrix](docs/SKILL_MATRIX.md) for historical prioritization versus current status
+- [Conversion Plan](docs/CONVERSION_PLAN.md) for implementation history and repo stance
 
 ## What is intentionally deferred
 
