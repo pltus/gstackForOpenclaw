@@ -32,13 +32,14 @@ extract_bullets_between() {
 
 check_markdown_links() {
   local file="$1"
-  local target resolved
+  local target path_target resolved
   while IFS= read -r target; do
     case "$target" in
       http://*|https://*|mailto:*|\#*) continue ;;
     esac
 
-    resolved="$(dirname "$file")/$target"
+    path_target="${target%%#*}"
+    resolved="$(dirname "$file")/$path_target"
     if [[ ! -e "$resolved" ]]; then
       fail "$file references missing path: $target"
     fi
