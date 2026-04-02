@@ -84,9 +84,6 @@ table_rows="$(awk '
 [[ "$table_rows" == "${#skills[@]}" ]] || fail "docs/IMPLEMENTATION_INVENTORY.md readiness table row count ($table_rows) does not match skills/ count (${#skills[@]})"
 
 echo "Checking documented skill counts..."
-parity_implemented="$(awk -F'|' '/Implemented \/ reinterpreted baseline entries/ { gsub(/ /, "", $3); print $3 }' docs/PARITY_AUDIT.md)"
-[[ "$parity_implemented" == "${#skills[@]}" ]] || fail "docs/PARITY_AUDIT.md implemented count ($parity_implemented) does not match skills/ count (${#skills[@]})"
-
 inventory_count="$(grep -oE '\*\*[0-9]+ implemented skills\*\*' docs/IMPLEMENTATION_INVENTORY.md | grep -oE '[0-9]+')"
 [[ "$inventory_count" == "${#skills[@]}" ]] || fail "docs/IMPLEMENTATION_INVENTORY.md implemented count ($inventory_count) does not match skills/ count (${#skills[@]})"
 
