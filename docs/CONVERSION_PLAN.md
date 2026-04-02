@@ -249,38 +249,47 @@ Potentially useful as a second-opinion pattern, but OpenClaw already has native 
 
 ---
 
-## 6. Target Repository Structure
+## 6. Repository Structure Notes
+
+The original planning pass used a **target-state sketch** here.
+Some of that sketch was deliberately never created, and some parts were absorbed into simpler repo conventions.
+
+### Historical sketch only, not current repo truth
+
+The earlier target structure assumed items such as:
+
+- a standalone `docs/ARCHITECTURE.md`
+- `prototypes/` for experimental prompts/scripts
+- per-skill helper `scripts/` in places like `skills/review/`
+
+Those should be read as planning-era placeholders, not as claims about what exists in this clone today.
+
+### Current repo shape in this clone
 
 ```text
 gstackForOpenclaw/
 ├── README.md
 ├── docs/
 │   ├── CONVERSION_PLAN.md
+│   ├── IMPLEMENTATION_INVENTORY.md
+│   ├── PARITY_AUDIT.md
+│   ├── READINESS_LEVELS.md
 │   ├── SKILL_MATRIX.md
-│   ├── ARCHITECTURE.md
+│   ├── VALIDATION_SUMMARY.md
 │   └── DECISIONS/
 ├── skills/
-│   ├── plan-ceo-review/
-│   │   ├── SKILL.md
-│   │   └── references/
-│   ├── plan-eng-review/
-│   │   ├── SKILL.md
-│   │   └── references/
-│   ├── review/
-│   │   ├── SKILL.md
-│   │   ├── references/
-│   │   └── scripts/
-│   ├── investigate/
-│   └── retro/
-└── prototypes/
-    ├── prompts/
-    └── scripts/
+│   └── <implemented-skill>/
+│       ├── SKILL.md
+│       └── references/
+└── scripts/
+    └── validate-docs.sh
 ```
 
 Notes:
 - `skills/` should contain only actual reusable skills
 - `docs/` should capture design decisions and comparison work
-- `prototypes/` is for experiments before promoting them into a stable skill
+- `scripts/validate-docs.sh` is a lightweight structural check, not a runtime certification harness
+- if a future `prototypes/` area is added, it should be described as an experiment area at that time rather than implied in current-reference docs
 
 ---
 

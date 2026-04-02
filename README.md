@@ -135,6 +135,16 @@ These docs explain:
 - which parts of the roadmap are implementation history vs active current stance
 - what the latest lightweight validation pass checked and cleaned up
 
+## Lightweight validation
+
+Run `scripts/validate-docs.sh` for a fast structural check of:
+
+- local doc links in `README.md` and `docs/`
+- implemented skill directories and `references/` paths mentioned from `SKILL.md`
+- a few shared implemented-skill snapshots so doc drift shows up quickly
+
+This is a structure/drift check, not a workflow runtime test.
+
 ## Working principle
 
 **Direct port is the wrong goal.**

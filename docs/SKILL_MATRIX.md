@@ -17,6 +17,9 @@ This file now separates two things that had drifted together:
 Use [PARITY_AUDIT.md](PARITY_AUDIT.md) as the source of truth for current-state vocabulary and rationale.
 Use this matrix when you want both the original prioritization and the current status in one place.
 
+This file is intentionally **skill-only**.
+It does not count the broader runtime/support areas tracked in `docs/PARITY_AUDIT.md`, so the totals between the two docs should not be expected to match.
+
 ## Current status buckets
 
 Aligned to `docs/PARITY_AUDIT.md`:
@@ -93,6 +96,7 @@ Implemented in this repo today:
 Notes:
 
 - `docs/PARITY_AUDIT.md` is the source of truth for status vocabulary, coverage framing, and current rationale.
+- This matrix covers only named skills; broader runtime/support areas stay in the parity audit.
 - This matrix preserves **historical planning priority** alongside **current parity status** so readers can see what changed over time.
 - `benchmark` and `cso` moved from earlier “later” thinking into real, deliberately thin implementations.
 - `qa`, `qa-only`, `plan-design-review`, and `design-review` moved from planning-era hesitation into honest narrowed implementations rather than fake parity.

@@ -72,6 +72,7 @@ These were documentation-drift issues rather than skill-logic failures:
 - clarified matrix status wording in `docs/SKILL_MATRIX.md`
 - tightened deferred re-entry criteria in `docs/DECISIONS/design-consultation-defer.md`
 - fixed the README docs wording and linked this validation note
+- later added `scripts/validate-docs.sh` so the same structural drift checks are easier to rerun
 
 ## Remaining stance
 
