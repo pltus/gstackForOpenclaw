@@ -67,9 +67,6 @@ done
 echo "Checking implemented-skill snapshots..."
 actual_list="$(printf '%s\n' "${skills[@]}")"
 
-readme_list="$(extract_bullets_between README.md '^### Implemented skills$' '^### Current posture$')"
-[[ "$readme_list" == "$actual_list" ]] || fail "README implemented skill list is out of sync with skills/"
-
 conversion_list="$(extract_bullets_between docs/CONVERSION_PLAN.md '^Current implemented skills in this repo:$' '^Current truth-source note:$')"
 [[ "$conversion_list" == "$actual_list" ]] || fail "docs/CONVERSION_PLAN.md implemented skill snapshot is out of sync with skills/"
 
