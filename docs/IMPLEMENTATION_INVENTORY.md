@@ -34,7 +34,7 @@ These are tags, not a maturity scoreboard.
 - each implemented skill currently has:
   - `SKILL.md`
   - one `references/` helper file
-- there are **no repo-level helper scripts** or command-router layers in the current pack
+- there is one lightweight repo-level validation script: `scripts/validate-docs.sh`
 
 ### Current implementation posture
 
@@ -94,6 +94,27 @@ Current reading:
 - `ship` is a release-readiness / handoff workflow, not generic deploy automation
 - `qa` and `qa-only` are evidence-first verification skills, not blanket browser-led autonomous QA
 
+### Per-skill readiness
+
+This table is intentionally compact and operational. It answers "what can I honestly say about this skill right now?" without treating readiness as a scoreboard.
+
+| Skill | Primary role | Readiness tags | Note |
+|---|---|---|---|
+| `office-hours` | front-door framing | `documented`, `implemented`, `validated-structure` | strong planning fit; routes into narrower downstream skills |
+| `plan-ceo-review` | product/scope review | `documented`, `implemented`, `validated-structure` | high-confidence planning workflow with low runtime dependence |
+| `plan-eng-review` | engineering plan review | `documented`, `implemented`, `validated-structure` | architecture/test/failure-mode review fits repo analysis cleanly |
+| `plan-design-review` | pre-build UX/design review | `documented`, `implemented`, `validated-structure` | intentionally pre-build and artifact-aware, not broad design generation |
+| `review` | code/diff review | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | structurally checked; confidence still depends on repo diff quality and available context |
+| `investigate` | root-cause diagnosis | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | strong workflow shape; live value depends on the repo/runtime evidence available |
+| `retro` | reflection/action items | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | credible with repo history, but depth depends on available artifacts and context |
+| `cso` | scoped security review | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | thin by design; strong claims still depend on target environment and evidence |
+| `benchmark` | measurement discipline | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | structurally real, but meaningful results depend on runnable benchmarks/commands |
+| `design-review` | artifact-first UX review | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | structurally checked; outcome quality depends on artifacts/screenshots/UI evidence |
+| `document-release` | release docs cleanup | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | thin workflow; useful when release context and changed artifacts are real |
+| `ship` | release readiness/handoff | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | explicitly not generic deploy automation |
+| `qa` | evidence-first verification | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | structurally checked; runtime confidence depends on tests, repro steps, and environment |
+| `qa-only` | report-only verification | `documented`, `implemented`, `validated-structure`, `runtime-dependent` | same evidence limits as `qa`, with an explicit no-fixing boundary |
+
 ## Notable reinterpretations to remember
 
 These are the most important “don’t overread the skill name” cases:
@@ -129,6 +150,7 @@ Documented checks currently include:
 - existence of referenced helper files
 - trigger/boundary clarity for the newer design/planning/testing wave
 - documentation drift cleanup across README + planning/parity docs
+- `scripts/validate-docs.sh` checks local doc links, skill/reference existence, and a few shared implemented-skill snapshots
 
 ### Specifically validated in a dedicated note
 

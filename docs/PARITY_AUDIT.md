@@ -25,6 +25,13 @@ This audit uses the public gstack skill list and workflow descriptions as the co
 
 It does **not** assume hidden internal behavior, unpublished tooling, or direct runtime equivalence.
 
+It also counts two different kinds of baseline entries on purpose:
+
+- **named gstack skills**
+- **broader runtime/support areas** that users might otherwise assume came along for the ride
+
+That means this audit is a **full parity ledger**, not a skill-only count. `docs/SKILL_MATRIX.md` intentionally stays narrower and tracks only the skill layer.
+
 ## Summary at a glance
 
 ### Overall parity posture
@@ -34,14 +41,16 @@ It does **not** assume hidden internal behavior, unpublished tooling, or direct 
 - **Not carried over yet on purpose:** browser-driven workflows, deployment automation, design generation workflows, explicit memory management, and most runtime/setup utilities
 - **Not treated as standalone skills here:** safety wrappers and branded meta-tools that fit better as OpenClaw defaults or repo policy
 
-### Coverage snapshot
+### Coverage snapshot for the full parity ledger
+
+These counts include named skills **and** a few broader runtime/support areas such as project-state artifacts, browser-daemon workflow, install/setup flow, and telemetry support.
 
 | Bucket | Count |
 |---|---:|
-| Implemented / reinterpreted | 14 |
-| Deferred | 11 |
-| Rejected / absorbed | 8 |
-| Total audited original skills/areas | 33 |
+| Implemented / reinterpreted baseline entries | 14 |
+| Deferred baseline entries | 11 |
+| Rejected / absorbed baseline entries | 8 |
+| Total audited baseline entries | 33 |
 
 ## Area-by-area audit
 
